@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import { useAuth } from '../../../context/AuthContext';
@@ -38,6 +38,20 @@ interface OrganizerProfileData {
 }
 
 export default function OrganizerProfilePage() {
+  return (
+      <Suspense
+        fallback={
+          <div className="min-h-[70vh] flex items-center justify-center">
+            <Loader2 className="w-8 h-8 text-kage-gold animate-spin" />
+          </div>
+        }
+      >
+        <OrganizerProfileContent />
+      </Suspense>
+    );
+  }
+  
+  function OrganizerProfileContent() {
   const params = useParams();
   const router = useRouter();
   const organizerId = params.id as string;

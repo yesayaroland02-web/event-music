@@ -1,0 +1,150 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Main Colors */
+  --color-kage-black: #0B0B0D;
+  --color-kage-surface: #121216;
+  --color-kage-elevated: #18181E;
+  --color-kage-border: #292930;
+
+  /* Typography Colors */
+  --color-kage-muted: #9A968E;
+  --color-kage-washi: #F4F0E8;
+  --color-kage-mist: #C4C0B8;
+  --color-kage-mist-dim: #85818A;
+
+  /* Accent Colors */
+  --color-kage-crimson: #C83E37;
+  --color-kage-red: #C62828;
+  --color-kage-vermilion: #E5484D;
+  --color-kage-gold: #D6A85F;
+
+  /* Status Colors */
+  --color-kage-success: #4CAF78;
+  --color-kage-error: #E5484D;
+
+  /* Compatibility aliases for existing components */
+  --color-kage-yoru: #121216;
+  --color-kage-yoru-light: #1C1C24;
+
+  /* Fonts */
+  --font-serif: 'Noto Serif JP', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-kage-black);
+    color: var(--color-kage-washi);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font-family: inherit;
+  }
+
+  ::selection {
+    background: #D6A85F;
+    color: #0B0B0D;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-kage-black);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-kage-border);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #D6A85F;
+  }
+}
+
+/* Subtle Film Grain Texture */
+.film-grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  z-index: 999;
+}
+
+/* Kanji Watermark */
+.kanji-text {
+  font-family: var(--font-serif);
+}
+
+/* Premium Card Effect */
+.kage-card {
+  background: linear-gradient(
+    145deg,
+    #18181E 0%,
+    #121216 100%
+  );
+  border: 1px solid #292930;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.kage-card:hover {
+  border-color: rgba(214, 168, 95, 0.45);
+}
+
+/* Gold Accent */
+.kage-gold-text {
+  color: #D6A85F;
+}
+
+.kage-gold-line {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #D6A85F,
+    transparent
+  );
+}
+
+/* Premium Button */
+.kage-primary-button {
+  background: linear-gradient(
+    135deg,
+    #C62828,
+    #E5484D
+  );
+  color: #F4F0E8;
+  transition: all 0.3s ease;
+}
+
+.kage-primary-button:hover {
+  filter: brightness(1.15);
+  transform: translateY(-1px);
+}

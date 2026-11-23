@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { Star, X, Send, Loader2 } from 'lucide-react';
-import api from '@/lib/axios';
+import api from '../../lib/axios';
 
 interface ReviewModalProps {
   eventId: string;
